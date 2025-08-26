@@ -80,7 +80,7 @@ const DirectorBonusInputs: React.FC<DirectorBonusInputsProps> = ({ bonuses, setB
             onDateChange={(field, value) => handleDateChange(bonus.id, field, value)}
             label="支給日"
           />
-           <p className="text-xs text-gray-500">ヒント: その日に支給する義務はないため、平日を設定するのが一般的です。</p>
+           <p className="text-xs text-gray-500">ヒント: 決議した支給日に支払う義務があります。休日を避け、平日を設定するのが一般的です。</p>
           <button
             type="button"
             onClick={() => handleRemove(bonus.id)}
