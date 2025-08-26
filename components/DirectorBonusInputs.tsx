@@ -11,15 +11,18 @@ interface DirectorBonusInputsProps {
 const DirectorBonusInputs: React.FC<DirectorBonusInputsProps> = ({ bonuses, setBonuses }) => {
   const handleAdd = () => {
     const today = new Date();
-    const reiwaYear = today.getFullYear() - 2018;
+    const twentyFifthOfNextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 25);
+    const bonusReiwaYear = twentyFifthOfNextMonth.getFullYear() - 2018;
+    const bonusMonth = twentyFifthOfNextMonth.getMonth() + 1;
+    
     setBonuses([
       ...bonuses,
       {
         id: crypto.randomUUID(),
-        title: '代表取締役',
+        title: '取締役',
         name: '',
         amount: '',
-        paymentDate: { year: `${reiwaYear}`, month: '', day: '' },
+        paymentDate: { year: `${bonusReiwaYear}`, month: `${bonusMonth}`, day: '25' },
       },
     ]);
   };

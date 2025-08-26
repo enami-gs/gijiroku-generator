@@ -7,10 +7,24 @@ import type { FormData } from './types';
 
 const App: React.FC = () => {
   const today = new Date();
+  
+  // Today's date for meeting and minutes creation
   const reiwaYear = today.getFullYear() - 2018;
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+
+  // Remuneration start date: 1st of next month
+  const firstOfNextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 1);
+  const remunerationReiwaYear = firstOfNextMonth.getFullYear() - 2018;
+  const remunerationMonth = firstOfNextMonth.getMonth() + 1;
+
+  // Bonus payment date: 25th of next month
+  const twentyFifthOfNextMonth = new Date(today.getFullYear(), today.getMonth() + 1, 25);
+  const bonusReiwaYear = twentyFifthOfNextMonth.getFullYear() - 2018;
+  const bonusMonth = twentyFifthOfNextMonth.getMonth() + 1;
 
   const [formData, setFormData] = useState<FormData>({
-    meetingDate: { year: `${reiwaYear}`, month: '6', day: '20' },
+    meetingDate: { year: `${reiwaYear}`, month: `${month}`, day: `${day}` },
     meetingTime: '10:00',
     companyName: 'サンプル株式会社',
     totalShareholders: '10',
@@ -24,7 +38,7 @@ const App: React.FC = () => {
       { id: crypto.randomUUID(), name: '山田 太郎' },
       { id: crypto.randomUUID(), name: '鈴木 一郎' },
     ],
-    remunerationStartDate: { year: `${reiwaYear}`, month: '7', day: '1' },
+    remunerationStartDate: { year: `${remunerationReiwaYear}`, month: `${remunerationMonth}`, day: '1' },
     remunerations: [
       { id: crypto.randomUUID(), title: '代表取締役', name: '山田 太郎', amount: '500000' },
       { id: crypto.randomUUID(), title: '取締役', name: '鈴木 一郎', amount: '400000' },
@@ -36,11 +50,11 @@ const App: React.FC = () => {
         title: '代表取締役',
         name: '山田 太郎', 
         amount: '1000000', 
-        paymentDate: { year: `${reiwaYear}`, month: '7', day: '25' } 
+        paymentDate: { year: `${bonusReiwaYear}`, month: `${bonusMonth}`, day: '25' } 
       },
     ],
     closingTime: '10:30',
-    minutesCreationDate: { year: `${reiwaYear}`, month: '6', day: '20' },
+    minutesCreationDate: { year: `${reiwaYear}`, month: `${month}`, day: `${day}` },
   });
 
   return (
