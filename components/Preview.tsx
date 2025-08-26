@@ -38,11 +38,11 @@ const Preview: React.FC<PreviewProps> = ({ formData }) => {
   };
 
   return (
-    <div className="bg-white shadow-xl p-12 font-serif-jp text-black text-[11pt] leading-7">
+    <div className="bg-white shadow-xl p-10 font-serif-jp text-black text-sm leading-relaxed">
       <div className="w-full">
-        <h1 className="text-2xl font-bold text-center mb-8">定時株主総会議事録</h1>
+        <h1 className="text-2xl font-bold text-center mb-6">定時株主総会議事録</h1>
 
-        <div className="space-y-4">
+        <div className="space-y-3">
             <p>
               令和 {year(formData.meetingDate.year)} 年 {pad(formData.meetingDate.month)} 月 {pad(formData.meetingDate.day)} 日
               {formData.meetingTime && ` ${formatTime(formData.meetingTime)}`}
@@ -50,7 +50,7 @@ const Preview: React.FC<PreviewProps> = ({ formData }) => {
             </p>
 
             <p>当日の出席株主数ならびに株式数は下記のとおり。</p>
-            <div className="pl-8 my-4 space-y-1">
+            <div className="pl-8 my-3 space-y-1">
               <p>株主の総数 {formatNumber(formData.totalShareholders)} 名</p>
               <p>発行済株式の総数 {formatNumber(formData.totalIssuedShares)} 株</p>
               <p>議決権を行使できる株主の数 {formatNumber(formData.votingShareholders)} 名</p>
@@ -62,13 +62,13 @@ const Preview: React.FC<PreviewProps> = ({ formData }) => {
             <p>出席取締役 {getAttendingDirectorsText()}</p>
             <p>【代表取締役】 {formData.representativeDirector} （議長兼議事録作成者）</p>
 
-            <p className="mt-4">
+            <p>
               定刻、代表取締役 {formData.representativeDirector} は議長席に着き、定款により議長たることを述べ、本総会の開会を告げ、本日の出席株主数およびその持株数、議決権数を前記のとおり報告し、定足数を満たしているので本総会は適法に成立した旨を述べ、直ちに議事に入った。
             </p>
         </div>
 
 
-        <div className="mt-8 space-y-6">
+        <div className="mt-6 space-y-5">
           <section>
             <h2 className="font-bold text-lg">第１号議案 取締役各個の受けるべき報酬金額決定の件</h2>
             <p className="mt-2">
@@ -100,7 +100,7 @@ const Preview: React.FC<PreviewProps> = ({ formData }) => {
           )}
         </div>
 
-        <div className="mt-8 space-y-4">
+        <div className="mt-6 space-y-3">
             <p>
               以上をもって本総会の議事を終了したので、議長は、
               {formData.closingTime && ` ${formatTime(formData.closingTime)}`}
@@ -113,10 +113,10 @@ const Preview: React.FC<PreviewProps> = ({ formData }) => {
         </div>
 
 
-        <div className="mt-12 space-y-4 text-right">
+        <div className="mt-10 space-y-3 text-right">
           <p>令和 {year(formData.minutesCreationDate.year)} 年 {pad(formData.minutesCreationDate.month)} 月 {pad(formData.minutesCreationDate.day)} 日</p>
           <p>{formData.companyName} 定時株主総会</p>
-          <p className="mt-6">代表取締役（議長兼議事録作成者） {formData.representativeDirector} 印</p>
+          <p className="mt-4">代表取締役（議長兼議事録作成者） {formData.representativeDirector} 印</p>
         </div>
       </div>
     </div>
