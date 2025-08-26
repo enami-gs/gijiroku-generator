@@ -66,36 +66,24 @@ const Form: React.FC<FormProps> = ({ formData, setFormData }) => {
             onDateChange={(field, value) => handleDateChange('meetingDate', field, value)}
             label="開催年月日"
         />
-        <div>
-          <label htmlFor="meetingTime" className="block text-sm font-medium text-gray-700">
-            開催時刻
-          </label>
-          <input
-            type="time"
+        <InputGroup
+            label="開催時刻"
             id="meetingTime"
-            name="meetingTime"
+            type="time"
             value={formData.meetingTime}
             onChange={handleInputChange}
+            hint="時間は任意です。空欄可。"
             required={false}
-            className="mt-1 block w-40 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-          />
-          <p className="mt-2 text-xs text-gray-500">時間は任意です。空欄可。</p>
-        </div>
-        <div>
-          <label htmlFor="closingTime" className="block text-sm font-medium text-gray-700">
-            閉会時刻
-          </label>
-          <input
-            type="time"
+        />
+        <InputGroup
+            label="閉会時刻"
             id="closingTime"
-            name="closingTime"
+            type="time"
             value={formData.closingTime}
             onChange={handleInputChange}
+            hint="時間は任意です。空欄可。"
             required={false}
-            className="mt-1 block w-40 rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
-          />
-          <p className="mt-2 text-xs text-gray-500">時間は任意です。空欄可。</p>
-        </div>
+        />
       </FormSection>
 
       <FormSection title="株式・株主情報">

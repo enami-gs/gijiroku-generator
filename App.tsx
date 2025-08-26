@@ -8,11 +8,9 @@ import type { FormData } from './types';
 const App: React.FC = () => {
   const today = new Date();
   const reiwaYear = today.getFullYear() - 2018;
-  const month = today.getMonth() + 1;
-  const day = today.getDate();
 
   const [formData, setFormData] = useState<FormData>({
-    meetingDate: { year: `${reiwaYear}`, month: `${month}`, day: `${day}` },
+    meetingDate: { year: `${reiwaYear}`, month: '6', day: '20' },
     meetingTime: '10:00',
     companyName: 'サンプル株式会社',
     totalShareholders: '10',
@@ -42,7 +40,7 @@ const App: React.FC = () => {
       },
     ],
     closingTime: '10:30',
-    minutesCreationDate: { year: `${reiwaYear}`, month: `${month}`, day: `${day}` },
+    minutesCreationDate: { year: `${reiwaYear}`, month: '6', day: '20' },
   });
 
   return (
