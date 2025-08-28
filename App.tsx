@@ -58,9 +58,9 @@ const App: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
+    <div className="min-h-screen bg-gray-50 text-gray-800 flex flex-col">
       <Header />
-      <main className="p-4 sm:p-6 lg:p-8">
+      <main className="flex-grow p-4 sm:p-6 lg:p-8">
         <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 max-w-7xl mx-auto">
           <div className="no-print">
             <Form formData={formData} setFormData={setFormData} />
@@ -70,6 +70,9 @@ const App: React.FC = () => {
           </div>
         </div>
       </main>
+      <footer className="text-center text-sm text-gray-500 py-4 bg-gray-100 no-print">
+        ＠GS共同会計事務所
+      </footer>
     </div>
   );
 };
